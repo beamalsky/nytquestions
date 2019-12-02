@@ -5,7 +5,7 @@ from pprint import pprint
 
 from nytquestions import get_questions
 
-LOCAL_DEVELOPMENT = True
+LOCAL_DEVELOPMENT = False
 
 if LOCAL_DEVELOPMENT:
     from secrets import *
@@ -24,8 +24,6 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 questions = get_questions(NYT_API_KEY)
-print("Questions found: ")
-pprint(questions)
 
 for question in questions:
     q = str(question)
