@@ -35,7 +35,7 @@ To get started, run the following from your terminal:
   cd nytquestions
   ```
 
-2. Switch the `LOCAL_DEVELOPMENT` variable in `bot.py` to `False`
+2. Switch the `LOCAL_DEVELOPMENT` variable in `bot.py` to `True`
 
 3. Rename `secrets_example.py` to `secrets.py`:
 
