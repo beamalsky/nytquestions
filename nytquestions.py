@@ -4,16 +4,14 @@ import json
 from pprint import pprint
 from datetime import datetime, timezone
 
-from secrets import API_KEY
-
 nltk.download('punkt')
 
-def get_questions(seconds_interval):
+def get_questions(NYT_API_KEY, seconds_interval):
     BASE_URL = 'https://api.nytimes.com/svc/topstories/v2'
     included_fields = ['title', 'abstract']
 
     response = requests.get(
-        'https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=' + API_KEY
+        'https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=' + NYT_API_KEY
     )
 
     # Get recent articles. Refresh interval should be set in bot.py
