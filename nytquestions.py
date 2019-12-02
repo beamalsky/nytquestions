@@ -4,7 +4,7 @@ import nltk
 nltk.download('punkt')
 
 
-def get_questions(NYT_API_KEY, seconds_interval):
+def get_questions(NYT_API_KEY):
     included_fields = ['title', 'abstract']
 
     response = requests.get(
