@@ -28,7 +28,10 @@ print("Questions found: ")
 pprint(questions)
 
 for question in questions:
+    q = str(question)
+
     try:
-        api.update_status(str(question))
+        api.update_status(q)
+        print("New tweet posted: " + q)
     except tweepy.error.TweepError:
-        print("Duplicate found. Passing...")
+        print("Duplicate found: " + q)
