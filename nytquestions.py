@@ -1,20 +1,15 @@
 import requests
 import nltk
-import json
-from pprint import pprint
-from datetime import datetime, timezone
-from dateutil import parser
-
-import pandas as pd
 
 nltk.download('punkt')
 
+
 def get_questions(NYT_API_KEY, seconds_interval):
-    BASE_URL = 'https://api.nytimes.com/svc/topstories/v2'
     included_fields = ['title', 'abstract']
 
     response = requests.get(
-        'https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=' + NYT_API_KEY
+        'https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key='
+        + NYT_API_KEY
     )
 
     questions = []

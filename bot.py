@@ -1,6 +1,7 @@
 import time
 import sys
 import tweepy
+from pprint import pprint
 
 from nytquestions import get_questions
 
@@ -31,7 +32,7 @@ api = tweepy.API(auth)
 while True:
     questions = get_questions(NYT_API_KEY, seconds_interval)
     print("Questions found: ")
-    print(questions)
+    pprint(questions)
 
     for question in questions:
         try:
