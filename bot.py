@@ -2,23 +2,27 @@ import time
 import sys
 import tweepy
 
-from os import environ
 from nytquestions import get_questions
 
 LOCAL_DEVELOPMENT = False
 
 if LOCAL_DEVELOPMENT:
     from secrets import *
+
     # Check for new questions from the last day
     seconds_interval = 24 * 60 * 60
+
 else:
+    from os import environ
+
     CONSUMER_KEY = environ['CONSUMER_KEY']
     CONSUMER_SECRET = environ['CONSUMER_SECRET']
     ACCESS_KEY = environ['ACCESS_KEY']
     ACCESS_SECRET = environ['ACCESS_SECRET']
     NYT_API_KEY = environ['NYT_API_KEY']
-    # Check for new questions every minute
-    seconds_interval = 60
+
+    # Check for new questions every 10 minutes
+    seconds_interval = 10 * 60
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
