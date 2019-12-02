@@ -12,15 +12,21 @@ from secrets import *
 # ACCESS_KEY = environ['ACCESS_KEY']
 # ACCESS_SECRET = environ['ACCESS_SECRET']
 
-# INTERVAL = 60 * 60 * 6  # tweet every 6 hours
-INTERVAL = 15  # every 15 seconds, for testing
+# Check for new questions every 15 minutes
+seconds_interval = 15 * 60
 
-# auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-# auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-# api = tweepy.API(auth)
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
 
 while True:
-    questions = get_questions()
+    questions = get_questions(seconds_interval)
     print(questions)
-    # api.update_status(questions)
-    time.sleep(INTERVAL)
+
+    for question in questions:
+        try:
+            api.update_status(str(question))
+        except tweepy.error.TweepError:
+            print("Duplicate found. Passing...")
+
+    time.sleep(seconds_interval)
