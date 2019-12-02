@@ -17,8 +17,8 @@ else:
     ACCESS_KEY = environ['ACCESS_KEY']
     ACCESS_SECRET = environ['ACCESS_SECRET']
     NYT_API_KEY = environ['NYT_API_KEY']
-    # Check for new questions every 15 minutes
-    seconds_interval = 15 * 60
+    # Check for new questions every minute
+    seconds_interval = 60
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
@@ -26,6 +26,7 @@ api = tweepy.API(auth)
 
 while True:
     questions = get_questions(NYT_API_KEY, seconds_interval)
+    print("Questions found: ")
     print(questions)
 
     for question in questions:
