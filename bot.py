@@ -22,8 +22,8 @@ else:
     ACCESS_SECRET = environ['ACCESS_SECRET']
     NYT_API_KEY = environ['NYT_API_KEY']
 
-    # Check for new questions every 10 minutes
-    seconds_interval = 10 * 60
+    # Check for new questions every 5 minutes
+    seconds_interval = 5 * 60
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
