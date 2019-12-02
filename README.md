@@ -10,6 +10,19 @@ Uses Python, tweepy, and Heroku. S/o to [this post](https://dev.to/emcain/how-to
 
 - [Docker](https://www.docker.com/)
 
+## Deployment
+
+This app is deployed on Heroku. To deploy what's on the `master` branch:
+
+  ```bash
+  git push heroku master
+  ```
+
+To check out the logs:
+
+  ```bash
+  heroku logs --tail
+  ```
 
 ## Running the app locally
 
