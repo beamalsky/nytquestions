@@ -4,25 +4,11 @@ What questions is the New York Times asking today?
 
 A Twitter bot inspired by [this tweet](https://twitter.com/blprnt/status/1201124570155159552) from Jer Thorp, as well as [@NYT_first_said](https://twitter.com/nyt_first_said) and [@nyt_diff](https://twitter.com/nyt_diff). Checks the [Times Wire API](https://developer.nytimes.com/docs/timeswire-product/1/overview) every 10 minutes for new questions.
 
-Uses Python, tweepy, and Heroku. S/o to [this post](https://dev.to/emcain/how-to-set-up-a-twitter-bot-with-python-and-heroku-1n39) by [Emily Cain](https://emcain.github.io/) for the guiding method.
+Uses Python, tweepy, and a Github Action. S/o to [this post](https://dev.to/emcain/how-to-set-up-a-twitter-bot-with-python-and-heroku-1n39) by [Emily Cain](https://emcain.github.io/) for the guiding method.
 
 ## Requirements
 
 - [Docker](https://www.docker.com/)
-
-## Deployment
-
-This app is deployed on Heroku. To deploy what's on the `master` branch:
-
-  ```bash
-  git push heroku master
-  ```
-
-To check out the logs:
-
-  ```bash
-  heroku logs --tail
-  ```
 
 ## Running the app locally
 
